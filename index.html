@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meepzor Tribute</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Achtergrondafbeelding -->
+  <img src="images/websiteachtergrond.png" alt="Website achtergrond" class="background-img">
+
+  <main>
+    <!-- Game info met cover -->
+    <section id="game" class="game-section stacked fade-in">
+      <div class="game-info">
+        <img src="images/meepzor.png" alt="Meepzor Game Cover" class="cover-top" id="meepzor-btn">
+
+        <!-- Speelse play knop -->
+        <button id="play-music-btn" class="music-button">🎵 Speel muziek</button>
+
+        <h2>Over Meepzor</h2>
+        <p>
+          <strong>Meepzor is een empathisch spel ontwikkeld door het team <em>De Vier Musketiers</em>, bestaande uit vier HvA-studenten: Ali Gokalp, Jake Laan, Mai-Leigh Hagen en Lucius Durany Ramirez.</strong>
+        </p>
+        <p>
+          Dit spel is ons gezamenlijke visie, ontstaan uit een passieproject met als doel om een jonge doelgroep op speelse wijze een moreel kompas bij te brengen. 
+          Door herkenbare situaties en betekenisvolle keuzes leren spelers zich in te leven in anderen en bewust te worden van hun eigen gedrag.
+        </p>
+      </div>
+    </section>
+
+    <!-- Verhaalblokken -->
+    <section class="story-block fade-in">
+      <img src="images/Crash.png" alt="Crash in Amsterdam">
+      <p>
+        Oh nee! Meepzor is gecrasht in Amsterdam! Deze schattige alien begrijpt niet wat empathie is. 
+        Zou jij hem kunnen helpen om de juiste keuzes te maken terwijl hij allerlei verschillende mensen ontmoet?
+      </p>
+    </section>
+
+    <section class="story-block fade-in">
+      <img src="images/schommel.png" alt="Keuzes maken">
+      <p>
+        Meepzor is een spel waarin jij keuzes moet maken. Dit zijn allemaal scenario’s die jij ook buiten de game zou kunnen meemaken in de echte wereld. 
+        Het is de bedoeling dat je empathisch – dus meelevend met de gevoelens van anderen – reageert op de situaties die je ziet.
+      </p>
+    </section>
+
+    <section class="story-block fade-in">
+      <img src="images/kaarten.png" alt="Kaarten trekken" class="story-img-small">
+      <p>
+        De game geeft aan wanneer je een kaart van de tafel mag trekken. Elke kaart beschrijft de situatie die je op je scherm ziet. 
+        Je krijgt per situatie drie opties om te antwoorden: een empathisch antwoord, een neutraal antwoord en natuurlijk een antwoord waar de persoon eigenlijk niets aan heeft.
+      </p>
+    </section>
+
+    <section class="story-block fade-in">
+      <img src="images/eindes.png" alt="Punten en eindes">
+      <p>
+        Na elke vraag krijg je punten. Je punten bepalen uiteindelijk welk van de drie eindes je krijgt. 
+        Probeer goed na te denken over wat het beste antwoord is, zodat Meepzor zijn steentje kan bijdragen terwijl hij onder de mensen leeft.
+      </p>
+    </section>
+
+    <!-- Speel Nu knop -->
+    <section class="play-now-section fade-in">
+      <button onclick="scrollToGame()">Speel Nu</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 De vier Musketiers</p>
+  </footer>
+
+  <!-- Muziek -->
+  <audio id="bg-music" preload="auto">
+    <source src="audio /meepzormuziek.mp3" type="audio/mpeg">
+    Je browser ondersteunt geen audio.
+  </audio>
+
+  <script>
+    function scrollToGame() {
+      document.getElementById("game").scrollIntoView({ behavior: "smooth" });
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const music = document.getElementById("bg-music");
+      const playButton = document.getElementById("play-music-btn");
+
+      music.volume = 0.5;
+
+      playButton.addEventListener("click", () => {
+        music.play().catch(err => console.log("Audio error:", err));
+        playButton.classList.add("playing");
+        playButton.textContent = "🎶 Muziek speelt...";
+        playButton.disabled = true;
+      });
+
+      const faders = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      faders.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>

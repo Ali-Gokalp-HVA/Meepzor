@@ -1,0 +1,182 @@
+:root {
+  --black: #000;
+  --purple: #210733;
+  --gold: #ffa500;
+  --white: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  background-color: var(--black);
+  color: var(--white);
+  position: relative;
+  z-index: 0;
+  scroll-behavior: smooth;
+}
+
+.background-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Fade-in animatie */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Game info */
+.game-section.stacked {
+  display: block;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.game-info {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cover-top {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Muziekknop */
+.music-button {
+  margin-bottom: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background-color: var(--gold);
+  color: var(--black);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.music-button:hover {
+  background-color: var(--white);
+  color: var(--purple);
+  transform: scale(1.05);
+}
+
+/* Overige tekst */
+.game-info h2 {
+  font-size: 2.4rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.game-info p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Verhaalblokken */
+.story-block {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.story-block img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.story-block p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+
+/* Kleine afbeelding voor kaarten.png */
+.story-img-small {
+  max-width: 70%;
+  max-height: 280px;
+}
+
+/* Speel Nu knop */
+.play-now-section {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.play-now-section button {
+  background-color: var(--purple);
+  color: var(--white);
+  border: none;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-now-section button:hover {
+  background-color: var(--gold);
+  color: var(--black);
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--purple);
+  color: var(--white);
+  font-size: 1rem;
+}
+
+/* Mobiel */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .cover-top {
+    max-width: 90%;
+  }
+
+  .story-block img {
+    max-height: 200px;
+  }
+
+  .story-img-small {
+    max-width: 90%;
+    max-height: 200px;
+  }
+
+  .play-now-section button {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
